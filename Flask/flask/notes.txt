@@ -1,0 +1,84 @@
+Let's break down the provided Flask application code line by line in Hinglish:
+
+from flask import Flask
+Ye line Flask framework se Flask class ko import kar rahi hai. Flask ek web framework hai jo Python mein web applications banane ke liye use hota hai.
+app = Flask(__name__)
+Yahan Flask class ka ek instance app banaya ja raha hai. __name__ argument Flask ko batata hai ki application ka naam kya hai. Ye zaroori hai taaki Flask ko pata chale ki kaunse resources load karne hain.
+@app.route("/")
+Ye line ek decorator hai jo Flask ko batata hai ki jab user root URL ("/") par visit karega, tab niche diye gaye function ko call kiya jayega. Iska matlab hai ki jab koi user website ke homepage par aata hai, to ye function execute hoga.
+def welcome():
+Yahan ek function welcome define kiya gaya hai. Ye function tab call hoga jab user root URL par aata hai.
+    return "WELCOME TO THE PAGE"
+Ye line function ke andar hai aur ye string "WELCOME TO THE PAGE" ko return karti hai. Jab user homepage par aata hai, to ye message unhe dikhai dega.
+if __name__ == '__main__':
+Ye line check karti hai ki kya ye script directly run ki ja rahi hai ya kisi aur script se import ki gayi hai. Agar ye script directly run ho rahi hai, to niche diya gaya code execute hoga.
+    app.run()
+Ye line Flask application ko run karne ke liye hai. Ye default port (usually 5000) par server ko start karta hai, jisse application web browser mein access kiya ja sakta hai.
+Summary:
+Ye code ek simple Flask web application hai jo homepage par "WELCOME TO THE PAGE" message dikhata hai. Jab aap is application ko run karte hain, to aap apne web browser mein http://127.0.0.1:5000/ par jaakar ye message dekh sakte hain.
+
+
+Arre bhidu, ab tu Flask ke **`@app.route()`** wale scene pe aa gaya? 😎  
+Chal ekdum simple terms me samjhata hoon!  
+
+---
+
+### **`@app.route()` Kya Hai?**  
+Flask me **`@app.route()`** ek **decorator** hai jo bataata hai ki **koi URL kis function se connect hoga**. Matlab **jab user kisi URL pe request bhejega, to kaunsa function chalega**, yeh `@app.route()` decide karta hai.
+
+### **Example Samajh:**
+```python
+from flask import Flask
+
+app = Flask(__name__)  # Flask app banaya
+
+@app.route("/")  # Root URL ("/") pe yeh function chalega
+def home():
+    return "Pannu bhai ka Flask app chal raha hai! 🚀"
+
+if __name__ == "__main__":
+    app.run(debug=True)  # Server start hoga
+```
+
+#### **Kaise Kaam Karega?**
+1. Jab tu **server start karega**:
+   ```bash
+   python app.py
+   ```
+2. Fir browser me **`http://127.0.0.1:5000/`** open karega.
+3. Toh output aayega:  
+   ```
+   Pannu bhai ka Flask app chal raha hai! 🚀
+   ```
+
+---
+
+### **Kuch Extra Scene**
+#### **1️⃣ Multiple Routes**
+Agar tu **alag-alag URLs ke liye** alag functions chahiye, toh aise karega:
+```python
+@app.route("/about")
+def about():
+    return "Yeh Pannu ka about page hai!"
+```
+🟢 `http://127.0.0.1:5000/about` pe visit karega toh **"Yeh Pannu ka about page hai!"** dikhega.
+
+#### **2️⃣ Dynamic Routes (URL me variables)**
+```python
+@app.route("/user/<name>")
+def user_profile(name):
+    return f"Hello {name}, welcome to Pannu's site!"
+```
+🔹 Agar tu **`http://127.0.0.1:5000/user/Amit`** pe jaayega, toh output aayega:
+   ```
+   Hello Amit, welcome to Pannu's site!
+   ```
+
+---
+
+### **Final Summary**
+✅ **`@app.route()`** batata hai ki **kaunsa function kaunsa URL handle karega**.  
+✅ `"/"` root URL ke liye, `"/about"` about page ke liye, `"/user/<name>"` dynamic URL ke liye.  
+✅ Flask server chalane ke liye `app.run(debug=True)` likhna zaroori hai.
+
+**Tera Flask app ready hai bhidu! 🚀🔥**
