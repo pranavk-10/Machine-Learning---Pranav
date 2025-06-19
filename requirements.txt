@@ -8,3 +8,4 @@ multithreading
 flask
 streamlit
 scikit-learn
+nltk
