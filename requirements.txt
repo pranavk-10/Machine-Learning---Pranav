@@ -9,3 +9,5 @@ flask
 streamlit
 scikit-learn
 nltk
+xlml
+lxml
