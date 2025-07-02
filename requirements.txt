@@ -11,3 +11,11 @@ scikit-learn
 nltk
 xlml
 lxml
+tensorflow==2.18.0
+pandas 
+numpy 
+scikit-learn
+tensorboard
+matplotlib
+streamlit
+scikeras
